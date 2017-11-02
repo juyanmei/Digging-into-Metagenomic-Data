@@ -34,7 +34,7 @@ for(i in 1:ncol(phe)){
   if(pseR2[i,1]>0.15){
     lasso.coef <- predict(cv.out$glmnet.fit,type='coefficients',s=bestlam)[1:ncol(test.x),]
     lasso.f <- lasso.coef[lasso.coef!=0]
-    name <- paste(colnames(test.y)[i],"lasso.txt",sep = "_")
+    name <- paste(colnames(test.y)[i],"lasso_regress.txt",sep = "_")
     write.table(lasso.f,name,quote=F,row.names = T,sep = "\t")
   }
 }
