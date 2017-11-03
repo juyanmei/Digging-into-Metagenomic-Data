@@ -1,0 +1,14 @@
+x
+(Intercept)	3.31186093017731
+Dialister_invisus	-0.189084181890459
+motu_linkage_group_573	10.9002654184568
+Lactobacillus_ruminis	1.63570521397022
+motu_linkage_group_24	0.6352676803413
+[Ruminococcus]_gnavus	-4.71167213908643
+motu_linkage_group_333	0.248285348359268
+motu_linkage_group_217	-1.27548542839983
+motu_linkage_group_525	0.622462975996778
+Granulicatella_adiacens	114.224070021142
+motu_linkage_group_253	-2.55963494096598
+Enterobacter_aerogenes	-89.5634869928515
+Odoribacter_splanchnicus	8.06259150232885

@@ -1,0 +1,14 @@
+x
+(Intercept)	9.47574785808016
+motu_linkage_group_63	2.52500862412175
+Lactobacillus_fermentum	38.8580460122208
+motu_linkage_group_411	52.2876606837078
+Lactobacillus_ruminis	11.6737238366136
+motu_linkage_group_24	5.41584849184477
+Lactobacillus_delbrueckii	395.439276317524
+Parabacteroides_merdae	17.5982592943647
+motu_linkage_group_333	3.78269928063214
+motu_linkage_group_525	5.85547571523916
+Eubacterium_biforme	64.3912773309125
+Turicibacter_sanguinis	96.0685498238445
+Enterobacter_cancerogenus	219.722258740926

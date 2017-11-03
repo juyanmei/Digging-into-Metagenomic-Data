@@ -1,0 +1,24 @@
+x
+(Intercept)	19.1235308918352
+motu_linkage_group_411	20.2042728370403
+Dialister_invisus	-3.87982487220957
+motu_linkage_group_573	375.173463737999
+Clostridium_scindens	-1903.45192010038
+Coprobacillus_sp._29_1	-162.077599622022
+motu_linkage_group_24	6.05694385503341
+Lactobacillus_plantarum	-1470.40856008159
+[Ruminococcus]_gnavus	-59.0577594166994
+motu_linkage_group_333	0.423601301669356
+motu_linkage_group_346	28.8703460658525
+motu_linkage_group_217	-157.757991046883
+motu_linkage_group_451	-397.494725179986
+motu_linkage_group_525	9.80228267572146
+motu_linkage_group_284	-9.2175443837418
+Prevotella_timonensis	-3082.4658438233
+motu_linkage_group_253	-34.8143081040254
+Enterobacter_aerogenes	-1615.61745110637
+Campylobacter_concisus	1231.45202114502
+motu_linkage_group_634	585.332012263877
+Holdemania_filiformis	212.157637547561
+Odoribacter_splanchnicus	175.442067071139
+Enterobacter_asburiae	-513.060181545462

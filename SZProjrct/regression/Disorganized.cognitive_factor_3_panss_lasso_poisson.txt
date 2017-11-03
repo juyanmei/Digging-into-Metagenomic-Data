@@ -1,0 +1,20 @@
+x
+(Intercept)	2.15127748835031
+motu_linkage_group_63	0.532981118654266
+Lactobacillus_fermentum	3.40364612462546
+motu_linkage_group_161	64.9351999532596
+Lactobacillus_ruminis	2.31679440712781
+Streptococcus_anginosus	89.8968362942357
+motu_linkage_group_24	1.99492231137261
+Lactobacillus_delbrueckii	78.7372827953206
+[Ruminococcus]_gnavus	-1.87347253641654
+Parabacteroides_merdae	0.98567343707649
+Lactococcus_garvieae	211.271665383514
+Roseburia_inulinivorans	1.10492603112916
+motu_linkage_group_568	185.370719351623
+motu_linkage_group_525	0.330387447613875
+Fusobacterium_varium	-27.5740995320488
+Granulicatella_adiacens	168.70048108146
+Eubacterium_biforme	12.0849093739266
+Megasphaera_elsdenii	1.25420426881916
+Enterobacter_cancerogenus	89.2506742854657

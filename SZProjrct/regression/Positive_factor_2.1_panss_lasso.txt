@@ -1,0 +1,20 @@
+x
+(Intercept)	14.0536751343597
+motu_linkage_group_33	-6.7249780799549
+Bifidobacterium_bifidum	8.39582286311295
+Bacteroides_finegoldii	-14.9016755087568
+Dorea_formicigenerans	80.6040401141057
+motu_linkage_group_414	58.3505463680354
+motu_linkage_group_625	-169.644597299642
+motu_linkage_group_45	-29.5551404074692
+motu_linkage_group_151	-53.6616490016469
+motu_linkage_group_136	-59.9447261150502
+Citrobacter_youngae	642.359674436937
+motu_linkage_group_458	-67.3432083685991
+motu_linkage_group_771	-336.696752651352
+Enterobacter_hormaechei/cloacae	107.20086109799
+motu_linkage_group_177	-12.1880472069003
+motu_linkage_group_120	-44.027107592981
+Klebsiella_variicola/pneumoniae	3.90971227293102
+motu_linkage_group_611	-13.6745136641037
+motu_linkage_group_510	-14.6548543399799
