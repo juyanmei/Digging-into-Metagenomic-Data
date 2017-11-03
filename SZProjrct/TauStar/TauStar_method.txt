@@ -1,4 +1,0 @@
-																									TauStar method
-In this report, I also used PANSS and MCCB scale, and performed tests of independence by function tauStarTest in TauStar package (R package). Each motu is x, and each pheontype is y.
-
-Firstly, I used tauStarTest to calculated statistics and p value in both PANSS and MCCB. The result is named “mccb (panss)_independance_statistic(pvalue)” and the code named “TauStar.r” . And then, I draw heatmap with code named “TauStarHeatmap.r” and result named “MCCB (PANSS)_tStar_heatmap_1103.pdf”. In this code, p value < 0.05 is represented by “+”, p value < 0.01 is represented by “*”.  
