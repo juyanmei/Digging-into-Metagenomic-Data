@@ -12,7 +12,7 @@ train.y <- train.y[pmatch(colnames(train.x),rownames(train.y)),]
 library(glmnet)
 grid=10^ seq (10,-2, length =1000)
 set.seed(0)
-cv.out <- cv.glmnet(t(train.x),train.y[,1],family = "binomial", type.measure="class", nfolds = 5)
+cv.out <- cv.glmnet(t(train.x),train.y[,1],family = "binomial", type.measure="class", nfolds = 5,lambda = grid)
 lasso.pred <- predict(cv.out$glmnet.fit,s=cv.out$lambda.1se,newx = t(train.x),type="class")
 table(lasso.pred,train.y[,1])
 source("ROC.r")
