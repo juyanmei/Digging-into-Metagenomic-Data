@@ -6,7 +6,7 @@ rm(list = ls())
 train.x <- read.table("../../SZData/mOTU.0.05.profile",header = 1,row.names = 1)
 train.y <- read.table("../../SZData/state171.txt",header = 1,row.names = 1)
 colnames(train.x) <- gsub("\\.","-",colnames(train.x))
-train.y <- train.y[pmatch(colnames(train.x),rownames(train.y)),]
+train.y <- train.y[pmatch(colnames(train.x), rownames(train.y)),]
 
 #classification
 library(glmnet)
