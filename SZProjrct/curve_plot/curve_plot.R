@@ -63,7 +63,7 @@ for (i in 1:ncol(phe.prof)) {
   motu.edit <- ModifymOTU(phe, motu)
   phe.edit <- as.numeric(names(table(phe)))
   iplot.phe <- iplotCurves(motu.edit, phe.edit, 
-                           chartOpts = list(xlab = colnames(phe.prof)[i],ylab = "Abundance"))
+                           chartOpts = list(xlab = colnames(phe.prof)[i], ylab = "Abundance"))
   iplot.name <- paste(colnames(phe.prof)[i], "html", sep = ".")
   htmlwidgets::saveWidget(iplot.phe, file = iplot.name)
 }
