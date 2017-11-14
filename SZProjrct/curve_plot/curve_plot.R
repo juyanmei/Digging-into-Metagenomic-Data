@@ -24,6 +24,8 @@ phe.prof <- read.table("../../SZData/panss.txt", header = 1, row.names = 1)
 colnames(motu.prof) <- sub("\\.", "-", colnames(motu.prof))
 motu.phe.prof <- motu.prof[, pmatch(rownames(phe.prof), colnames(motu.prof))]
 motu.phe.prof <- as.matrix(motu.phe.prof)
+# log motu profile
+#motu.phe.prof[motu.phe.prof==0] <- 1e-10
 #motu.phe.prof <- log10(motu.phe.prof)
 
 ModifymOTU <- function(x, y) {
