@@ -1,5 +1,5 @@
 #---------------------------------------------------------------------------------------#
-# Copyright (c) 2017 Yanmei Ju (BGI-shenzhen). Allrights reserved.                      #
+# Copyright (c) 2017 Yanmei Ju (BGI-shenzhen). All rights reserved.                      #
 # Created by Yanmei Ju (BGI-shenzhen) on 11/11/2017                                     #
 # This R program is to calculate the difference of motus in case and control samples    #
 # Args:                                                                                 #
@@ -7,9 +7,9 @@
 #   state.prof: state profile, 1st column is sample state: case(1) and control(0)       #
 #   prefix: output file prefix                                                          #
 # output:                                                                               #
-#   5 columns which is estimate; std.error; statistics; pvalue; qvalue respectively     #
+#   5 columns which are estimate; std.error; statistics; pvalue; qvalue respectively    #
 # require(pscl) : zero-inflated model
-# libraru(qvalue): adjust p value
+# library(qvalue): adjust p value
 #---------------------------------------------------------------------------------------#
 
 # load path
