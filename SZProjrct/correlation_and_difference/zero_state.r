@@ -60,7 +60,7 @@ colnames(qvalue.no.present) <- colnames(qvalue.zero.infl.wilcox) <- "qvalue"
 qvalue <- rbind(qvalue.zero.infl.wilcox, qvalue.no.present)
 regress.qvalue <- qvalue[pmatch(rownames(regress.result), rownames(qvalue)), ]
 regress.result[, 5] <- regress.qvalue
-colnames(regress.result) <- c("Estimate", "Std.Error", "Zvalue/w", "Pvalue", "Qvalue")
+colnames(regress.result) <- c("Estimate", "Std.Error", "Zvalue|w", "Pvalue", "Qvalue")
 
 # output: estimate; std.error; statistics; pvalue; qvalue
 write.table(regress.result, "zero_infl_wc_state0vs1_2groups_34_1107_bh.txt", quote = F, row.names = T, sep = "\t")
