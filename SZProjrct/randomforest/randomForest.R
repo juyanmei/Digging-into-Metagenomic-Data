@@ -20,7 +20,8 @@ prefix <- args[9]
 library(randomForest)
 
 args <- commandArgs(F)
-SD <- dirname(sub("--file=", "", args[grep("--file=", args)]))
+## SD <- dirname(sub("--file=", "", args[grep("--file=", args)]))
+SD <- 
 # function
 source(paste0(SD, "/rfcv1.R"))
 source(paste0(SD, "/ROC.R"))
