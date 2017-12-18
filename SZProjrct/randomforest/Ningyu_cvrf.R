@@ -28,22 +28,26 @@ set.seed(1234)
 for(j in 1:nm){
   trainaccuracy <- 0
   testaccuracy <- 0
-  for (i in 1:10){
-    testset <- dataset[c((17 * i -16):(17*i)),]
-    trainset <- dataset[-c((17 * i -16):(17*i)),]
-    rf <- randomForest(as.factor(state2)~., data = trainset, ntree = 1000, mtry = j)
-    trainpredicterror <- predict(rf, trainset, type = 'class')
-    testpredicterror <- predict(rf, testset, type = 'class')
-    traintable <- table(Predictions=trainpredicterror, actual=trainset$state2)
-    testtable <- table(Predictions=testpredicterror, actual=testset$state2)
-    trainaccuracy <- trainaccuracy + sum(diag(traintable))/sum(traintable)
-    testaccuracy <- testaccuracy + sum(diag(testtable))/sum(testtable)
+  for (k in 1:100){
+    id <- sample(171,171)
+    dataset2 <- dataset[id,]
+      for (i in 1:10){
+        testset <- dataset2[c((17 * i -16):(17*i)),]
+        trainset <- dataset2[-c((17 * i -16):(17*i)),]
+        rf <- randomForest(as.factor(state2)~., data = trainset, ntree = 1000, mtry = j)
+        trainpredicterror <- predict(rf, trainset, type = 'class')
+        testpredicterror <- predict(rf, testset, type = 'class')
+        traintable <- table(Predictions=trainpredicterror, actual=trainset$state2)
+        testtable <- table(Predictions=testpredicterror, actual=testset$state2)
+        trainaccuracy <- trainaccuracy + sum(diag(traintable))/sum(traintable)
+        testaccuracy <- testaccuracy + sum(diag(testtable))/sum(testtable)
+      }
   }
-  trainaccuracyset[j] <- trainaccuracy/10
-  testaccuracyset[j] <- testaccuracy/10
+  trainaccuracyset[j] <- trainaccuracy/1000
+  testaccuracyset[j] <- testaccuracy/1000
 }
 setwd("C:/Users/Ningyu Sha/Dropbox/Ningyu Sha/Dropbox/Digging-into-metagenomic-data/SZProjrct/randomforest") 
-pdf('cross validationn.pdf', width = 10, height = 10)
+pdf('cross validation2.pdf', width = 10, height = 10)
 plot(1:50,testaccuracyset, type = "b", pch = 16, col = c("orange"),xlab = "mtry", ylab = "accuracy" )
 
 #plot(30:500,testaccuracyset, type = "o", xlab = "mtry", ylab = "test set prediction error" )

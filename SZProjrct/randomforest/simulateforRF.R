@@ -12,7 +12,7 @@ for (ii in 1:p){
 
 randdataset <- as.data.frame(cbind(x,y))
 
-nm <- 10 #number of mtry
+nm <- 20 #number of mtry
 tp <- double(nm)
 fp <- double(nm)
 oob.err = double(nm)
@@ -29,6 +29,12 @@ for (i in 1:nm){
   fp[i] <- t[1,2]/(t[1,2]+t[2,2]);
 }
 
+matplot(1:nm, cbind(test.err, oob.err), pch = 19, col = c("red", "blue"), 
+        type = "b", ylab = "Error", axes = F)
+axis(1)
+axis(2)
+legend("topright", legend = c("OOB", "Test"), pch = 19, col = c("red", "blue"))
+
 tpp <- tp
 fp_list <- sort(fp,index.return= TRUE)
 fp <- fp_list$x
@@ -43,5 +49,5 @@ tp <- temp
 #pdf('ROC.pdf', width = 10, height = 10)
 #future=paste("ROC curve",".jpg") 
 #jpeg(file=future)
-plot(fp,tp, type = "l", xlab = "false positive rate", ylab = "true positive rate" )
+#plot(fp,tp, type = "l", xlab = "false positive rate", ylab = "true positive rate" )
 #dev.off()

@@ -36,7 +36,6 @@ trainset <- sample(1:171, 101) #randomly choose 101 train index
 for (i in 1:nm){
   set.seed(i)
   rf <- randomForest(as.factor(state2)~., data = dataset, subset = trainset, ntree = 500, mtry = i)
-  oob.err[i] = rf$err.rate[i,1]
   PredictionWithClass <- predict(rf, dataset[-trainset, ], type = 'class')
   t <- table(Predictions=PredictionWithClass, actual=(dataset[-trainset, ]) $ state2)
   test.err[i] = 1 - sum(diag(t))/sum(t)
