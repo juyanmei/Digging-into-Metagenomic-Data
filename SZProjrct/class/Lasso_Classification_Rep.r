@@ -4,7 +4,7 @@
 # This R program is using to class state2 in lasso model cvfold repeat times    #
 # Args:                                                                         #
 #   motu.prof: column is sample, row is motu                                    #
-#   state.prof: column is state and row is sample                               #　　　　　
+#   state.prof: column is state and row is sample                               #
 #   cv.fold: number of cv.fold                                                  #
 #   repeat.time: time of repeating cv.fold                                      #
 #   prefix: the result prefix                                                   #
