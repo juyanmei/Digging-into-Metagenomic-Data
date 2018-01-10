@@ -37,7 +37,7 @@ if (!dir.exists(out_dir))
   dir.create(out_dir)
 
 ## loda data and tidy data
-baseinfo_csv <- here("data", "rat_245S_baseinfo.csv")
+baseinfo_csv <- here("data", "rat_245S_baseinfo_v2.csv")
 footinfo_csv <- here("data", "rat_49S_footinfo.csv")
 
 sample_info <- read_csv(baseinfo_csv)
