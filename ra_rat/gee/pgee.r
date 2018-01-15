@@ -3,7 +3,7 @@
 # Created by Yanmei Ju (BGI-shenzhen) on 01/15/2018                             #
 # This R program is using to do sparse gee                                      #
 # Args:                                                                         #
-#   motu.prof: column is sample, row is motu                                    #
+#   prof: column is sample, row is y, id, group, time, predictors          #
 #   per: occurance cutoff 
 # output:                                                                       #
 #   out: list such as cv, select non-zero variables                             #   
@@ -20,17 +20,17 @@ library(PGEE)
 source("pgee_func.R")
 
 # load data
-motu.prof <- read.table("metaphlan_245_rat_total_info.txt", header = 1, row.names = 1)
+prof <- read.table("metaphlan_245_rat_total_info.txt", header = 1, row.names = 1)
 per <- 0
 
 # modify data
-colnames(motu.prof)[1:4] <- c("y", "id", "group", "time") 
-gjk <- motu.prof[which(motu.prof$group == 'GJK'), ]
-hfd <- motu.prof[which(motu.prof$group == 'HFD'), ]
-lcasei <- motu.prof[which(motu.prof$group == 'Lcasei'), ]
-model <- motu.prof[which(motu.prof$group == 'Model'), ]
-mtx <- motu.prof[which(motu.prof$group == 'MTX'), ]
-zqftn <- motu.prof[which(motu.prof$group == 'ZQFTN'), ]
+colnames(prof)[1:4] <- c("y", "id", "group", "time") 
+gjk <- prof[which(prof$group == 'GJK'), ]
+hfd <- prof[which(prof$group == 'HFD'), ]
+lcasei <- prof[which(prof$group == 'Lcasei'), ]
+model <- prof[which(prof$group == 'Model'), ]
+mtx <- prof[which(prof$group == 'MTX'), ]
+zqftn <- prof[which(prof$group == 'ZQFTN'), ]
 
 # combine group
 model.gjk <- rbind(model, gjk)
