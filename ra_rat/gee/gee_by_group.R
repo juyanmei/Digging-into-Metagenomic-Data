@@ -61,7 +61,8 @@ foot_info   <-
              day == ymd(20170819) ~ 5
            )) %>%
   #mutate(arthritis_score = na_if(arthritis_score, 0))
-  replace_na(list(arthritis_score = 0))
+  #replace_na(list(arthritis_score = 0))
+  replace(is.na(.), 0)
 
 score_info <- right_join(sample_info, foot_info)
 write_csv(score_info,
