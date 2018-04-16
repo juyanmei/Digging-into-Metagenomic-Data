@@ -23,7 +23,7 @@ if(length(args) != 8) {
 }
 # load package
 library(snow)
-
+library(PMA)
 #
 spe.prof <- args[1]
 env.prof <- args[2]
@@ -33,6 +33,7 @@ prefix <- args[5]
 start <- as.numeric(args[6])
 end <- as.numeric(args[7])
 nprocess <- as.numeric(args[8])
+
 # load data
 taxo.prof <- read.table(spe.prof, header = 1, row.names = 1)
 colnames(taxo.prof) <- gsub("\\.", "-", colnames(taxo.prof))
@@ -76,11 +77,6 @@ parallPenaltyzFunc <- function(cl, taxo.prof, phe.prof, penalty.seq, nperms, sta
 # parallel processing
 cl <- makeCluster(nprocess, type="SOCK")
 clusterCall(cl, function() { library(PMA); NULL })
-
-#
-start
-end
-#
 para.res <- parallPenaltyzFunc(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end)
 
 penaltyzs <- seq(0, 1, penalty.seq)
