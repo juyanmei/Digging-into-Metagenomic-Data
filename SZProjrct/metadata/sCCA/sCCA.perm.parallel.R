@@ -1,3 +1,21 @@
+#-------------------------------------------------------------------------------#
+# Copyright (c) 2018 Yanmei Ju (BGI-shenzhen). Allrights reserved.              #
+# Created by Yanmei Ju (BGI-shenzhen) on 04/16/2018                             #
+# This R program is using to do sparse CCA                                      #
+# Args:                                                                         #
+#   spe.profile: row is sample, column is taxo                                  #
+#   env.prof: row is sample, column is env                                      #
+#   step : the step of tuning parameter. seq(0, 1, step)                        #
+#   prefix : the output prefix                                                  #
+#   start : seq(start, 1, step)                                                 #
+#   end : seq(0, end, step)                                                     #
+#   nprocess : the number of process                                            #
+# output:                                                                       #
+#   out: cca.perm.out which contains "z", "penaltyx", "penaltyz"                #   
+# library(PMA)                                                                  #
+# library(snow)
+#-------------------------------------------------------------------------------#
+
 args <- commandArgs(T)
 cat("make sure:\n	y and x must have the same sample id\n")
 if(length(args) != 8) {
@@ -26,7 +44,7 @@ dim(taxo.prof)
 dim(phe.prof)
 
 # tuning para
-func <- function(x, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
+penaltyxFunc <- function(x, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
   set.seed(0)
   penaltyzs <- x
   penaltyxs <- seq(start, end, penalty.seq)
@@ -43,7 +61,7 @@ func <- function(x, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
   return(cca.perm.out)
 }
 
-mutlinks <- function(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
+parallPenaltyzFunc <- function(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
   set.seed(0)
   penaltyzs <- seq(0, 1, penalty.seq)
   n <- length(penaltyzs)
@@ -51,8 +69,8 @@ mutlinks <- function(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end) {
   options(warn = -1)
   ipenaltyzs <- sapply(split(1:n, 1:nc), function(x) round(x/n, 2))
   options(warn = 0)
-  count <- clusterApply(cl, ipenaltyzs, func, taxo.prof, phe.prof, penalty.seq, nperms, start, end)
-  count
+  res <- clusterApply(cl, ipenaltyzs, penaltyxFunc, taxo.prof, phe.prof, penalty.seq, nperms, start, end)
+  res
 }
 
 # parallel processing
@@ -63,7 +81,7 @@ clusterCall(cl, function() { library(PMA); NULL })
 start
 end
 #
-para.res <- mutlinks(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end)
+para.res <- parallPenaltyzFunc(cl, taxo.prof, phe.prof, penalty.seq, nperms, start, end)
 
 penaltyzs <- seq(0, 1, penalty.seq)
 res <- matrix(NA, length(penaltyzs), 3)
@@ -88,10 +106,6 @@ cca.perm.out <- as.data.frame(res)
 colnames(cca.perm.out) <- c("z", "penaltyx", "penaltyz")
 cca.perm.out$penaltyx <- as.factor(cca.perm.out$penaltyx)
 write.table(cca.perm.out, prefix, quote = F, sep = "\t")
-#library(ggplot2)
-#ggplot(cca.perm.out, aes(penaltyz, z, color = penaltyx)) +
-#  geom_point() +
-#  facet_grid(. ~ cca.perm.out$penaltyx )
 
 
 
